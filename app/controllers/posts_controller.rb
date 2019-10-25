@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   before_action :authenticate_user!
 
@@ -9,9 +11,9 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     if @post.save
       redirect_to posts_path
-      flash[:success] = "Post created!"
+      flash[:success] = 'Post created!'
     else
-      flash.now[:danger] = "Post not created!"
+      flash.now[:danger] = 'Post not created!'
       render 'new'
     end
   end
@@ -19,10 +21,10 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
   end
-  
 
   private
-    def post_params
-      params.require(:post).permit(:content)
-    end
+
+  def post_params
+    params.require(:post).permit(:content)
+  end
 end

@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
   before :each do
-    @user = User.new(name: "user1", email: "user1@example.com", password: "user1password")
+    @user = User.new(name: 'user1', email: 'user1@example.com', password: 'user1password')
   end
 
   context 'Valid user' do
@@ -17,7 +19,7 @@ RSpec.describe User, type: :model do
 
   context 'Invalid user' do
     it 'has an invalid name' do
-      @user.name = ""
+      @user.name = ''
       expect(@user).to_not be_valid
     end
   end
