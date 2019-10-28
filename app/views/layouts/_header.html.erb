@@ -8,11 +8,24 @@
   
   <div class="right menu">
    <% if current_user %>
-   <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'ui item' %> 
-<% else %>
+      <div class="ui right dropdown item">
+      <%= current_user.name %>
+      <i class="dropdown icon"></i>
+      <div class="menu">
+      <div class="item">
+        <%= link_to 'Profile', user_path(current_user.id) %>
+      </div>
+      <div class="item">
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      </div>
+    </div>
+  </div>
+</div>
+  <% else %>
 <%= link_to 'Sign up', new_user_registration_path, class: 'ui item' %>
 <%= link_to 'Log in', new_user_session_path, class: 'ui item' %>
 <% end %>  
 
   </div>
 </div>
+
