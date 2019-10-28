@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  root to: 'static_pages#home'
+  get 'users', to: 'users#index'
 
+  root to: 'posts#index'
 end

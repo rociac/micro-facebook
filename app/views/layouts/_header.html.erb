@@ -1,0 +1,18 @@
+
+    <div class="ui centered grid inverted fluid  menu">
+  <%= link_to 'Home', root_path, class: 'active item'%>
+    <%= link_to 'People', users_path, class: 'item'%>
+  <a class="item">
+    Friends
+  </a>
+  
+  <div class="right menu">
+   <% if current_user %>
+   <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'ui item' %> 
+<% else %>
+<%= link_to 'Sign up', new_user_registration_path, class: 'ui item' %>
+<%= link_to 'Log in', new_user_session_path, class: 'ui item' %>
+<% end %>  
+
+  </div>
+</div>
