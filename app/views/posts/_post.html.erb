@@ -1,4 +1,13 @@
 <%= post.content %>
 <br>
-<%= post.user_id %>
+<%= post.user.name %>
 <hr>
+<h2>Comments: </h2>
+<% post.comments.each do |comment| %>
+  <h3>User: <%= comment.user.name %></h3>
+  <h3>Content: <%= comment.content %></h3>
+<% end %>
+
+<%= link_to 'Comment', post_path(post) %>
+<br>
+
