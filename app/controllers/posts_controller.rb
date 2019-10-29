@@ -23,6 +23,7 @@ class PostsController < ApplicationController
   end
 
   def index
+    @likes = Like.all
     @posts = Post.all
   end
 
