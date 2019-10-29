@@ -1,31 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Micro-Facebook</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <div class="ui centered grid inverted fluid  menu">
-  <%= link_to 'Home', root_path, class: 'active item'%>
-    <%= link_to 'People', users_path, class: 'item'%>
-  <a class="item">
-    Friends
-  </a>
-  
-  <div class="right menu">
-   <% if current_user %>
-      <div class="ui right dropdown item">
-      <%= current_user.name %>
-      <i class="dropdown icon"></i>
-      <div class="menu">
-      <div class="item">
-        <%= link_to 'Profile', user_path(current_user.id) %>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto d-flex">
+      <li class="nav-item active">
+        <%= link_to 'Home', users_path, class: 'nav-link'%>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Find Friends', users_path, class: 'nav-link' %>
+      </li>
+    </ul>
+    <% if !current_user.nil? %>
+      <div class="nav-item dropdown d-flex navbar-right mr-4">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= current_user.name %>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to 'Profile', current_user, class: 'dropdown-item' %>
+          <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+        </div>
       </div>
-      <div class="item">
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-      </div>
-    </div>
+    <% end %>
   </div>
-</div>
-  <% else %>
-<%= link_to 'Sign up', new_user_registration_path, class: 'ui item' %>
-<%= link_to 'Log in', new_user_session_path, class: 'ui item' %>
-<% end %>  
-
-  </div>
-</div>
-
+</nav>
