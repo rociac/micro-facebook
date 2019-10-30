@@ -1,20 +1,36 @@
-<%= post.content %>
-<br>
-<%= post.user.name %>
-<hr>
-<h2>Comments: </h2>
-<% post.comments.each do |comment| %>
-  <h3>User: <%= comment.user.name %></h3>
-  <h3>Content: <%= comment.content %></h3>
-<% end %>
 
-<%= link_to 'Comment', post_path(post) %>
-<br>
-
-<p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
-<% if pre_like %>
-  <%= button_to 'Unlike', post_like_path(post, pre_like), method: :delete %>
-<% else %>
-  <%= button_to 'Like', post_likes_path(post), method: :post %>
-<% end %>
+
+
+
+<div class="post d-flex">
+    <%= gravatar_for post.user, size: 50 %>
+  <div class ="post__right">
+    <div class="post__header d-flex">
+      <div class="username">
+        <%= link_to post.user.name, user_path(post.user.id) %>
+      </div>
+      <div class="date">
+        <p>Posted <%= time_ago_in_words(post.created_at) %> ago</p>
+      </div>
+    </div>
+
+    <div class=post__content>
+      <%= post.content %>
+    </div>
+    <div class="post__footer d-flex">
+      <div class="post__footer-likes">
+        <% if pre_like %>
+          <%= link_to(content_tag(:i, "", class: 'fas fa-heart icon red'), post_like_path(post, pre_like), method: :delete) %>
+        <% else %>
+          <%= link_to(content_tag(:i, "", class: 'fas fa-heart icon' ), post_likes_path(post), method: :post) %>
+        <% end %>
+        <span><%= post.likes.count %></span>
+      </div>
+      <div class="post__footer-comments">
+        <%= link_to(content_tag(:i, "", class: 'fas fa-comment-alt'), post_path(post)) %>
+      </div>
+    </div>
+  </div>
+  <hr>
+</div>

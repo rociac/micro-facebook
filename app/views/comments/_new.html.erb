@@ -1,4 +1,10 @@
 <%= form_for [@post, @post.comments.build] do |f| %>
-  <%= f.text_area :content %>
-  <%= f.submit 'Comment' %>
+  <div class="form-row">
+    <div class="col">
+      <%= f.text_area :content, class: 'form-control comment-form' %>
+    </div>
+    <div class="col">
+      <%= f.submit 'Comment', class: 'btn btn-primary comment-button' %>
+    </div>
+  </div>
 <% end %>
