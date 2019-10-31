@@ -7,8 +7,8 @@ class CommentsController < ApplicationController
       flash[:success] = 'Comment created successfully!'
       redirect_to posts_path
     else
-      flash.now[:danger] = 'Can\'t create comment!'
-      render 'post'
+      flash[:danger] = 'Can\'t create comment!'
+      redirect_to posts_path
     end
   end
 

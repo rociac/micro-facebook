@@ -29,8 +29,10 @@
       </div>
       <div class="post__footer-comments">
         <%= link_to(content_tag(:i, "", class: 'fas fa-comment-alt'), post_path(post)) %>
+        <span><%= post.comments.count %></span>
       </div>
     </div>
   </div>
   <hr>
 </div>
+<%= render post.comments %>

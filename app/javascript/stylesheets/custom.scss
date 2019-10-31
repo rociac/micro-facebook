@@ -111,6 +111,13 @@ body {
     font-size: 1.6rem;
   }
 
+  &__footer {
+    margin: 2rem 2rem 1rem 0;
+    &-likes {
+      margin-right: 1rem;
+    }
+  }
+
 }
 
 .comment-form {
@@ -150,5 +157,27 @@ body {
 .red {
   color: red;
 }
+
+.comment {
+  width: 70rem;
+  background-color: #303644;
+  border-radius: 5px;
+  margin: 3px auto 3px auto;
+  padding-top: 5px;
+  .gravatar {
+    border-radius: 50%;
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-left: 1rem;
+  }
+  &__content{
+    margin-left: 1rem;
+    text-align: justify;
+    overflow: wrap;
+    padding-right: 3rem;
+    padding-bottom: 5px;
+  }
+}
+
 
 

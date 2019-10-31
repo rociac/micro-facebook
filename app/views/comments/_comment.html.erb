@@ -1,2 +1,16 @@
-<h4>User: <%= comment.user.name %> </h4>
-<h4>Content: <%= comment.content %> </h4>
+<div class="container">
+  <div class="comment d-flex">
+    <div class="comment__profile-picture">
+      <%= gravatar_for comment.user, size: 50 %>
+    </div>
+    <div class="comment__content d-flex flex-column">
+      <div class="comment__content-header d-flex flex-column">
+        <%= link_to comment.user.name, user_path(comment.user_id) %>
+        <p><%= comment.content %></p>
+      </div>
+      <%= time_ago_in_words(comment.created_at) %> ago
+    </div>
+    <hr>
+  </div>
+</div>
+
