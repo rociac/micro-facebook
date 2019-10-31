@@ -18,7 +18,7 @@ RSpec.describe 'User login', type: :feature do
 
   scenario 'User logs out successfully' do
     visit root_path
-    click_on('Sign Out')
-    expect(page).to have_content('Signed out successfully.')
+    click_on('Log Out')
+    expect(page).to have_content('Log in')
   end
 end
