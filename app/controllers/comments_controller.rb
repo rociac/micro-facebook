@@ -6,11 +6,11 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(content: comment_params[:content], user: current_user)
     if @comment.save
       flash[:success] = 'Comment created successfully!'
-      redirect_to posts_path
     else
       flash[:danger] = 'Can\'t create comment!'
-      redirect_to posts_path
     end
+    redirect_to posts_path
+
   end
 
   private
