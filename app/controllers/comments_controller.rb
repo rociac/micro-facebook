@@ -10,7 +10,6 @@ class CommentsController < ApplicationController
       flash[:danger] = 'Can\'t create comment!'
     end
     redirect_to posts_path
-
   end
 
   private
