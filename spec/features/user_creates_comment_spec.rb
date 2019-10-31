@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'rails_helper'
 RSpec.describe 'User creates Post', type: :feature do
   before :each do
@@ -8,10 +9,10 @@ RSpec.describe 'User creates Post', type: :feature do
     fill_in('Email', with: 'user1@example.com')
     fill_in('Password', with: 'user1password')
     click_button('Log in')
-    @post = @user.posts.create!(content: "New post")
+    @post = @user.posts.create!(content: 'New post')
     visit post_path(@post)
   end
-    
+
   scenario 'user creates comment' do
     fill_in('comment[content]', with: 'New comment')
     click_button('Comment')
@@ -23,5 +24,4 @@ RSpec.describe 'User creates Post', type: :feature do
     click_button('Comment')
     expect(page).to have_content('Can\'t create comment!')
   end
-
 end
