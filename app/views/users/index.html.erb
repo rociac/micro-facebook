@@ -2,4 +2,5 @@
 <br>
 <% @users.each do |user| %>
   <h4> <%= link_to user.name, user_path(user.id) %> </h4>
+  <%= link_to "Add Friend", friend_requests_path(:friend_id => user), :method => :post %>
 <% end %>

@@ -1,0 +1,12 @@
+<h1>Incoming: </h1>
+<% @incoming.each do |incoming| %>
+  <h4><%= incoming %></h4>
+  <%= link_to 'Accept', friend_request_path(incoming.id), method: :patch %>
+<% end %>
+
+<h1>Outgoing: </h1>
+
+<% @outgoing.each do |outgoing| %>
+  <h4><%= outgoing %></h4>
+  <%= link_to 'Cancel', friend_request_path(outgoing.id), method: :delete %>
+<% end %>
