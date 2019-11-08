@@ -16,6 +16,8 @@
    
     <% if !current_user.nil? %>
       <%= link_to 'Create Post', new_post_path %>
+      <%= link_to 'Friends', friends_path %>
+      <%= link_to 'Friend Requests', friend_requests_path %>
       <div class="nav-item dropdown d-flex navbar-right mr-4">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <%= current_user.name %>

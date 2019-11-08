@@ -7,7 +7,7 @@ class FriendsController < ApplicationController
 
   def destroy
     current_user.remove_friend(@friend)
-    flash[:success] = "Removed friend!0"
+    flash[:success] = "Removed friend!"
     redirect_to root_path
   end
 
