@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FriendRequest < ApplicationRecord
   belongs_to :user
   belongs_to :friend
@@ -10,7 +12,6 @@ class FriendRequest < ApplicationRecord
   validate :not_self
   validates :user, presence: true
   validates :friend, presence: true, uniqueness: { scope: :user }
-
 
   def accept
     user.friends << friend

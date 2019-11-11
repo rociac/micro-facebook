@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'user accepts a friend request', type: :feature do
@@ -14,11 +16,11 @@ RSpec.describe 'user accepts a friend request', type: :feature do
     click_button('Log in')
     visit users_path
     click_link('Find Friends')
-      expect(page).to have_content('People:')
-      expect(page).to have_content('Add Friend')
-      click_link('Add Friend')
-      expect(page).to have_content('Friend request sent!')
-      click_on('Log Out')
+    expect(page).to have_content('People:')
+    expect(page).to have_content('Add Friend')
+    click_link('Add Friend')
+    expect(page).to have_content('Friend request sent!')
+    click_on('Log Out')
   end
 
   scenario 'successfully' do
@@ -45,6 +47,6 @@ RSpec.describe 'user accepts a friend request', type: :feature do
     click_button('Log in')
     visit friend_requests_path
     click_on('Cancel')
-    expect(page).to have_content("Canceled friend request!")
+    expect(page).to have_content('Canceled friend request!')
   end
 end

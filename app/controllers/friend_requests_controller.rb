@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class FriendRequestsController < ApplicationController
-  before_action :set_friend_request, except: [:index, :create]
+  before_action :set_friend_request, except: %i[index create]
 
   def create
     friend = User.find(params[:friend_id])
