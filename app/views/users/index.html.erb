@@ -1,8 +1,10 @@
 <h2>People: </h2>
 <br>
 <% @users.each do |user| %>
-<% if user != current_user %>
-<h4> <%= link_to user.name, user_path(user.id) %> </h4>
-<%= link_to "Add Friend", friend_requests_path(:friend_id => user), :method => :post %>
-<% end %>
+  <% if user != current_user %>
+    <h4><%= link_to user.name, user_path(user.id) %></h4>
+    <% if !FriendRequest.exists?(user: current_user, friend: user) && current_user.pending_friends.include?(user)%>
+      <%= link_to "Add Friend", friend_requests_path(:friend_id => user), :method => :post %>
+    <% end %>
+  <% end %>
 <% end %> 
