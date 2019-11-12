@@ -16,9 +16,9 @@ RSpec.describe 'user sends friend request', type: :feature do
 
   scenario 'user adds friends' do
     visit root_path
-    click_link('Find friends')
+    click_link('Find Friends')
     expect(page).to have_content('People:')
-    expect(page).to have_content('Add friend')
+    expect(page).to have_content('Add Friend')
     click_link('Add Friend')
     expect(page).to have_content('Friend request sent!')
   end
