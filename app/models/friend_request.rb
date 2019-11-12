@@ -2,9 +2,6 @@
 
 class FriendRequest < ApplicationRecord
   belongs_to :user
-  belongs_to :friend
-
-  belongs_to :user
   belongs_to :friend, class_name: 'User'
 
   validate :not_friends

@@ -7,7 +7,7 @@ RSpec.describe 'user sends friend request', type: :feature do
     @user = User.create(name: 'User1', email: 'user1@example.com',
                         password: 'user1password', password_confirmation: 'user1password')
     @friend = User.create(name: 'User2', email: 'user2@example.com',
-                          password: 'user2password', password_confirmation: 'user1password')
+                          password: 'user2password', password_confirmation: 'user2password')
     visit new_user_session_path
     fill_in('Email', with: 'user1@example.com')
     fill_in('Password', with: 'user1password')
