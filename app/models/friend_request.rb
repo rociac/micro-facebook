@@ -28,5 +28,4 @@ class FriendRequest < ApplicationRecord
   def not_self
     errors.add(:friend, "can't be equal to user") if user == friend
   end
-
 end
