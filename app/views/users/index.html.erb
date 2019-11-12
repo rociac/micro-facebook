@@ -3,8 +3,10 @@
 <% @users.each do |user| %>
   <% if user != current_user %>
     <h4><%= link_to user.name, user_path(user.id) %></h4>
-    <% if !FriendRequest.exists?(user: current_user, friend: user)%>
+    <% if current_user.friends.include?(user) %>
+      <p>Already Friends!</p>
+    <% else %>
       <%= link_to "Add Friend", friend_requests_path(:friend_id => user), :method => :post, class: 'btn btn-primary' %>
     <% end %>
   <% end %>
-<% end %> 
+<% end %>

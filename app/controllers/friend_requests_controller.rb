@@ -9,11 +9,10 @@ class FriendRequestsController < ApplicationController
 
     if @friend_request.save
       flash[:success] = 'Friend request sent!'
-      redirect_to users_path
     else
-      flash.now[:danger] = 'Cant send friend request'
-      render 'users/index'
+      flash[:danger] = 'Can\'t send request, request already sent!'
     end
+    redirect_to users_path
   end
 
   def index
@@ -46,4 +45,5 @@ class FriendRequestsController < ApplicationController
   def set_friend_request
     @friend_request = FriendRequest.find(params[:id])
   end
+
 end

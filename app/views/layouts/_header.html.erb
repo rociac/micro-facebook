@@ -20,8 +20,8 @@
       
       <%= link_to 'Friend Requests', friend_requests_path, class: 'nav-link' %>
       <small class="fr-number">
-      <% if current_user.friend_requests.any? %>
-             <%= current_user.friend_requests.count %>
+      <% if incoming_requests(current_user).any? %>
+             <%= incoming_requests(current_user).count %>
       <% end %>
       </small>
       
