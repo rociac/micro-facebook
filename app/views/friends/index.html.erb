@@ -1,0 +1,5 @@
+
+<% current_user.friends.each do |friend| %>
+  <%= link_to friend.name, user_path(friend) %>
+  <%= link_to 'Remove friend', friend_path(friend), method: :delete %>
+<% end %>

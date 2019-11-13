@@ -23,8 +23,9 @@ class PostsController < ApplicationController
   end
 
   def index
-    @likes = Like.all
-    @posts = Post.all
+    @posts = current_user.posts + Post.joins("INNER JOIN friendships ON
+                                              posts.user_id=friendships.user_id AND friendships.friend_id=
+                                              #{current_user.id}")
   end
 
   private
