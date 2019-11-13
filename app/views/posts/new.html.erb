@@ -1,8 +1,4 @@
 <%= form_for(@post) do |f| %>
- 
-  <div>
-    <%= f.text_area :content, placeholder: "Compose new micropost..." %>
-  </div>
-  <%= f.submit "Post" %>
-  
+  <%= f.text_area :content, placeholder: "Say something!", class: 'form-control post-form' %>
+  <%= f.submit "Post", class: 'btn btn-primary'%>
 <% end %>
