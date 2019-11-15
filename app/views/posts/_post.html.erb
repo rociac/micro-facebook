@@ -2,6 +2,7 @@
 <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
 
 
+
 <div class="post d-flex">
     <%= gravatar_for post.user, size: 50 %>
   <div class ="post__right">
@@ -9,7 +10,7 @@
       <div class="username">
         <%= link_to post.user.name, user_path(post.user.id) %>
       </div>
-      <div class="date time">
+      <div class="date">
         <p>Posted <%= time_ago_in_words(post.created_at) %> ago</p>
       </div>
     </div>
@@ -24,10 +25,11 @@
         <% else %>
           <%= link_to(content_tag(:i, "", class: 'fas fa-heart icon' ), post_likes_path(post), method: :post) %>
         <% end %>
+        
         <span><%= post.likes.count %></span>
       </div>
       <div class="post__footer-comments">
-        <%= link_to(content_tag(:i, "", class: 'fas fa-comment icon'), post_path(post)) %>
+        <%= link_to(content_tag(:i, "", class: 'fas fa-comment-alt'), post_path(post)) %>
         <span><%= post.comments.count %></span>
       </div>
     </div>
@@ -35,4 +37,3 @@
   <hr>
 </div>
 <%= render post.comments %>
-
