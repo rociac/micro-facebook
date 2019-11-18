@@ -3,13 +3,15 @@
   <div class="row">
     <div class="col-l mt-4 pt-2 mr-2 pr-2">
         <div class="card text-white bg-dark mb-3 d-flex" style="max-width: 25rem;">
-          <div class="card-header pt-4 justify-content-end">MY PROFILE <i class="fas fa-cog setting-icon"></i>  <H5 class="mt-2 text-primary">@<%= current_user.name.capitalize %></H5></div>
+          <div class="card-header pt-4 justify-content-end">My Profile  
+          <i class="fas fa-cog setting-icon"></i>  <H5 class="mt-2 text-primary">@<%= current_user.name.capitalize %></H5></div>
           
             <div class="card-body pt-4">
               <h5 class="card-title text-secondary">My friends</h5>
               <p class="card-text text-primary">
                 <% current_user.friends.each do |friend| %>
-                  <%= link_to friend.name, user_path(friend) %>
+                 <small> <%= link_to friend.name.capitalize, user_path(friend) %> </small>
+                 <br/>
                 <% end %>
               </p>
             </div>
