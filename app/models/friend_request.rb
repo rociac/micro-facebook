@@ -12,6 +12,7 @@ class FriendRequest < ApplicationRecord
 
   def accept
     user.friends << friend
+    destroy
   end
 
   private
