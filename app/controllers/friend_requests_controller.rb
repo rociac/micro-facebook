@@ -5,7 +5,7 @@ class FriendRequestsController < ApplicationController
 
   def create
     @friend = User.find(params[:friend_id])
-    @friend_request = current_user.friend_requests.new(friend: @friend, confirmed: false)
+    @friend_request = current_user.friend_requests.new(friend: @friend)
     if @friend_request.save
       flash[:success] = 'Friend request sent!'
     else
