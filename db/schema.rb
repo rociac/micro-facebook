@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_11_11_162025) do
   create_table "friend_requests", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "friend_id"
+    t.boolean "confirmed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["friend_id"], name: "index_friend_requests_on_friend_id"
