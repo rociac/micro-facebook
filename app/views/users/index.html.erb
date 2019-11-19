@@ -7,11 +7,12 @@
       <p>Already Friends!</p>
     <% else %>
       <% if user.pending_friends.include?(current_user) %>
-        <p>Accept or reject?</p>
+        <%= link_to 'Check request', friend_requests_path %>
+
       <% elsif !FriendRequest.exists?(user: current_user, friend: user) %>
               <%= link_to "Add Friend", friend_requests_path(:friend_id => user), :method => :post, class: 'btn btn-primary' %>
       <% else %>      
-        <p>Cancel</p>
+        <%= link_to 'Check request', friend_requests_path %>
       <% end %>
     <% end %>
   <% end %>
