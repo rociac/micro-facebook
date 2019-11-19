@@ -1,12 +1,17 @@
-<h1>Incoming: </h1>
-<% @incoming.each do |incoming| %>
-  <h4><%= incoming.user.name %></h4>
-  <%= link_to 'Accept', friend_request_path(incoming.id), method: :patch %>
-<% end %>
-
-<h1>Outgoing: </h1>
-
-<% @outgoing.each do |outgoing| %>
-  <h4><%= outgoing.friend.name %></h4>
-  <%= link_to 'Cancel', friend_request_path(outgoing.id), method: :delete %>
-<% end %>
+<div class="container mt-4 pt-4">
+  <h2 class="ml-4">All your friend requests, in one place.  </h2>
+    <div class="container mt-4 pt-4">
+        <h4 class="mt-4 bg-dark p-3 mb-2 ">Incoming: </h4>
+            <% @incoming.each do |incoming| %>
+            <h4 class="ml-3 mt-4"><%= incoming.user.name.capitalize %> <small class="ml-4"><%= link_to 'Accept', friend_request_path(incoming.id), method: :patch %></small></h4>
+            
+            <% end %>
+    </div>
+    <div class="container mt-4 pt-4">
+      <h4 class="mt-4 bg-dark p-3 mb-2">Outgoing: </h1>
+      <% @outgoing.each do |outgoing| %>
+      <h4 class="ml-3 mt-4"><%= outgoing.friend.name.capitalize %> <small class="ml-4"><%= link_to 'Cancel', friend_request_path(outgoing.id), method: :delete, class: "text-danger" %></small></h4>
+      
+      <% end %>
+    </div>
+</div>

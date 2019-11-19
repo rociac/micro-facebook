@@ -6,10 +6,10 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto d-flex">
-      <li class="nav-item active">
+      <li class="nav-item <%='active' if current_page?(posts_path) %>">
         <%= link_to 'Home', posts_path, class: 'nav-link'%>
       </li>
-      <li class="nav-item">
+      <li class="nav-item <%='active' if current_page?(users_path) %>">
         <%= link_to 'Find Friends', users_path, class: 'nav-link' %>
       </li>
     </ul>
@@ -18,15 +18,16 @@
       
         
         <%= link_to 'Create Post', new_post_path, class: 'btn btn-primary pl-2 pr-2 pt-1 pb-1' %>    
-    
-      <%= link_to 'Friends', friends_path, class: 'nav-link' %>
-      
+        <li class="nav-item <%='active' if current_page?(friends_path) %>">
+            <%= link_to 'Friends', friends_path, class: 'nav-link ml-3' %>    
+        </li>
+        
       <%= link_to 'Friend Requests', friend_requests_path, class: 'nav-link' %>
-      <small class="fr-number">
-      <% if incoming_requests(current_user).any? %>
+        <small class="fr-number">
+          <% if incoming_requests(current_user).any? %>
              <%= incoming_requests(current_user).count %>
-      <% end %>
-      </small>
+          <% end %>
+        </small>
       
       
       <div class="nav-item dropdown d-flex navbar-right mr-4">

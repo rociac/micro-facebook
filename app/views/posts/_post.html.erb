@@ -8,7 +8,7 @@
   <div class ="post__right">
     <div class="post__header d-flex">
       <div class="username">
-        <%= link_to post.user.name, user_path(post.user.id) %>
+        <%= link_to post.user.name.capitalize, user_path(post.user.id) %>
       </div>
       <div class="date">
         <p>Posted <%= time_ago_in_words(post.created_at) %> ago</p>
@@ -16,7 +16,7 @@
     </div>
 
     <div class="post__content mb-4">
-      <%= post.content %>
+      <h4><%= post.content %></h4>
     </div>
     <div class="post__footer d-flex">
       <div class="post__footer-likes">

@@ -5,7 +5,7 @@
       
         <h4 class="mt-4 bg-dark p-3 mb-2 ml-1">
             <%= link_to friend.name.capitalize, user_path(friend),class:"text-white" %>
-            <small class="ml-4 pl-4 text-primary"> <%= link_to 'Remove friend', friend_path(friend), method: :delete %> </small>
+            <small class="ml-4 pl-4 text-primary"> <%= link_to 'Remove friend', friend_path(friend), method: :delete, class: "text-danger" %> </small>
           <% end %>
         </h4>
       </div>
