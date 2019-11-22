@@ -4,9 +4,8 @@ class FriendRequestsController < ApplicationController
   before_action :set_friend_request, except: %i[index create]
 
   def create
-    friend = User.find(params[:friend_id])
-    @friend_request = current_user.friend_requests.new(friend: friend)
-
+    @friend = User.find(params[:friend_id])
+    @friend_request = current_user.friend_requests.new(friend: @friend)
     if @friend_request.save
       flash[:success] = 'Friend request sent!'
     else

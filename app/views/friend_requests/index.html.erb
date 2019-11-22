@@ -2,6 +2,7 @@
 <% @incoming.each do |incoming| %>
   <h4><%= incoming.user.name %></h4>
   <%= link_to 'Accept', friend_request_path(incoming.id), method: :patch %>
+  <%= link_to 'Cancel', friend_request_path(incoming.id), method: :delete %>
 <% end %>
 
 <h1>Outgoing: </h1>
