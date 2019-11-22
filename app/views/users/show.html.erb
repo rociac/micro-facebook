@@ -15,7 +15,7 @@
               <h5 class="card-title text-secondary big-text"><%= @user.posts.count %> Posts</h5>
               <h5 class="card-title text-secondary big-text"><%= @user.friends.count %> Friends</h5>
               <p class="card-text text-primary show-card">
-                <% current_user.friends.sort_by{|t| - t.created_at.to_i}.first(10).each do |friend| %>
+                <% @user.friends.sort_by{|t| - t.created_at.to_i}.first(10).each do |friend| %>
                   <%= gravatar_for friend%>
                   <small class='ml-1'><%= link_to friend.name.capitalize, user_path(friend) %> </small>
                   <br/>
