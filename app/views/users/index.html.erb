@@ -1,23 +1,9 @@
 <div class="container mt-4 pt-4">
-<h2 class="ml-4">Who's here?  </h2>
-<br>
-<% @users.each do |user| %>
+  <h2 class="ml-4">Who's here?</h2>
+  <br>
   <div class="container">
-    <% if user != current_user %>
-    <h4 class="mt-4 bg-dark p-3 mb-2 text-white"><%= link_to user.name.capitalize, user_path(user.id), class: "text-white" %>
-      <% if current_user.friends.include?(user) %>
-        <small class="ml-4 pl-4 text-primary">You're already Friends!</small>
-    </h4>
-  
-    <% else %>
-      <%= link_to friend_requests_path(:friend_id => user), :method => :post do %>
-        
-        <small class="ml-4 pl-4 text-secondary">Add friend<i class="fas fa-check ml-2"></i></small>
-    </div>  
-      <% end %>
+    <% @users.each do |user| %>
+      <%= display_users(user) %>
     <% end %>
-    </div>
-  <% end %>
-<% end %>
-
+  </div>
 </div>

@@ -4,23 +4,26 @@
     <div class="col-l mt-4 pt-2 mr-2 pr-2">
         <div class="card text-white bg-dark mb-3 d-flex" style="max-width: 25rem;">
           <div class="card-header pt-4 justify-content-end">My Profile  
-          <i class="fas fa-cog setting-icon"></i>  <H5 class="mt-2 text-primary">@<%= current_user.name.capitalize %></H5></div>
+            <i class="fas fa-cog setting-icon"></i>
+              <h5 class="mt-2">
+                <%= link_to '@' + current_user.name.capitalize, user_path(current_user.id) %>
+              </h5>
+            </div>
           
             <div class="card-body pt-4">
               <h5 class="card-title text-secondary">My friends</h5>
               <p class="card-text text-primary">
-                <% current_user.friends.each do |friend| %>
-                 <small> <%= link_to friend.name.capitalize, user_path(friend) %> </small>
-                 <br/>
+                <% current_user.friends.sort_by{|t| - t.created_at.to_i}.first(10).each do |friend| %>
+                  <%= gravatar_for friend, size: 5 %>
+                  <small class='ml-1'><%= link_to friend.name.capitalize, user_path(friend) %> </small>
+                  <br/>
                 <% end %>
               </p>
             </div>
           </div>
         </div>
-    
 
-    <div class="col-m ml-2 pl-2">
-            <%= render @posts %>  
-    </div>
-
+  <div class="col-m ml-2 pl-2">
+    <%= render @posts %>  
+  </div>
 </div>

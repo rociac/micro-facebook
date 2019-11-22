@@ -5,7 +5,7 @@
     </div>
     <div class="comment__content d-flex flex-column">
       <div class="comment__content-header d-flex flex-column">
-        <%= link_to comment.user.name.capitalize, user_path(comment.user_id), class: "font-weight-bold" %>
+        <%= link_to comment.user.name.capitalize, user_path(comment.user_id), class: "font-weight-bold username" %>
         <p><%= comment.content %></p>
       </div>
       <p class="time"><%= time_ago_in_words(comment.created_at) %> ago</p> 

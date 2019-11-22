@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     else
       flash[:danger] = 'Can\'t create comment!'
     end
-    redirect_to posts_path
+    redirect_back(fallback_location: root_path)
   end
 
   private

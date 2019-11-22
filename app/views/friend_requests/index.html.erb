@@ -3,14 +3,22 @@
     <div class="container mt-4 pt-4">
         <h4 class="mt-4 bg-dark p-3 mb-2 ">Incoming: </h4>
             <% @incoming.each do |incoming| %>
-            <h4 class="ml-3 mt-4"><%= incoming.user.name.capitalize %> <small class="ml-4"><%= link_to 'Accept', friend_request_path(incoming.id), method: :patch %></small></h4>
-            
+            <h4 class="ml-3 mt-4">
+              <%= gravatar_for incoming.user, size: 10%>
+              <%= incoming.user.name.capitalize %>
+              <span class="ml-4">
+                <%= link_to 'Accept', friend_request_path(incoming.id), method: :patch, class: 'btn btn-primary' %>
+              </span>
+              <span class="ml-4">
+                <%= link_to 'Cancel', friend_request_path(incoming.id), method: :delete, class: 'btn btn-danger' %>
+              </span>
+              </h4>
             <% end %>
     </div>
     <div class="container mt-4 pt-4">
       <h4 class="mt-4 bg-dark p-3 mb-2">Outgoing: </h1>
       <% @outgoing.each do |outgoing| %>
-      <h4 class="ml-3 mt-4"><%= outgoing.friend.name.capitalize %> <small class="ml-4"><%= link_to 'Cancel', friend_request_path(outgoing.id), method: :delete, class: "text-danger" %></small></h4>
+      <h4 class="ml-3 mt-4"><%= outgoing.friend.name.capitalize %> <small class="ml-4"><%= link_to 'Cancel', friend_request_path(outgoing.id), method: :delete, class: "btn btn-danger" %></small></h4>
       
       <% end %>
     </div>

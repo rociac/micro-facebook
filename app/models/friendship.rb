@@ -10,6 +10,7 @@ class Friendship < ApplicationRecord
   validate :not_self
   validates :user, presence: true
   validates :friend, presence: true, uniqueness: { scope: :user }
+  # validate :can_be_friends?, on: :create
 
   private
 
@@ -25,4 +26,9 @@ class Friendship < ApplicationRecord
   def not_self
     errors.add(:friend, "can't be equal to user") if user == friend
   end
+
+  def can_be_friends?
+    
+  end
 end
+

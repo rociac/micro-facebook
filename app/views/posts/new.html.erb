@@ -1,8 +1,8 @@
 <%= form_for(@post) do |f| %>
 
   <div class = "mt-4">
-  <%= f.text_area :content, placeholder: "Say something!", class: 'form-control post-form mt-4' %>
-  <%= f.submit "Post", class: 'btn btn-primary ml-4 pl-4 pr-4 form-button'%>
-  
-</div>
+    <%= f.text_area :content, placeholder: "Say something!", class: 'form-control post-form mt-4' %>
+    <%= f.submit "Post", class: 'btn btn-primary post__button'%>
+  </div>
+
 <% end %>
