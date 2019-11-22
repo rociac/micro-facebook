@@ -216,7 +216,7 @@ Devise.setup do |config|
 
   # When set to false, does not sign a user in automatically after their password is
   # reset. Defaults to true, so a user is signed in automatically after a reset.
-  # config.sign_in_after_reset_password = true
+  # config.sign_in_after_reset_phttps://yourevilapp.herokuapp.comassword = true
 
   # ==> Configuration for :encryptable
   # Allow you to use another hashing or encryption algorithm besides bcrypt (default).
@@ -298,6 +298,6 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
 config.omniauth :facebook,
   ENV['FACEBOOK_APP_ID'],
-  ENV['FACEBOOK_APP_SECRET'],
-  callback_url:  "https://micro-social.herokuapp.com/users/auth/facebook/callback"
+  ENV['FACEBOOK_APP_SECRET'], 
+  token_params: { parse: :json }
 end

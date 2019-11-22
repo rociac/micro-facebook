@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :friends
   resources :friend_requests
+  get '/privacy', to: 'static_pages#privacy'
   
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   get 'users', to: 'users#index'
