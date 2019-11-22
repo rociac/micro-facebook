@@ -1,19 +1,9 @@
-<h2>People: </h2>
-<br>
-<% @users.each do |user| %>
-  <% if user != current_user %>
-    <h4><%= link_to user.name, user_path(user.id) %></h4>
-    <% if current_user.friends.include?(user) %>
-      <p>Already Friends!</p>
-    <% else %>
-      <% if user.pending_friends.include?(current_user) %>
-        <%= link_to 'Check request', friend_requests_path %>
-
-      <% elsif !FriendRequest.exists?(user: current_user, friend: user) %>
-              <%= link_to "Add Friend", friend_requests_path(:friend_id => user), :method => :post, class: 'btn btn-primary' %>
-      <% else %>      
-        <%= link_to 'Check request', friend_requests_path %>
-      <% end %>
+<div class="container mt-4 pt-4">
+  <h2 class="ml-4">Who's here?</h2>
+  <br>
+  <div class="container">
+    <% @users.each do |user| %>
+      <%= display_users(user) %>
     <% end %>
-  <% end %>
-<% end %>
+  </div>
+</div>

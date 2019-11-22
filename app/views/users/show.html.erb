@@ -1,3 +1,31 @@
-<%= @user.name %>
 
-<%= render @user.posts %>
+<div class = "container">
+  <div class="row">
+    <div class="col-l mt-4 pt-2 mr-2 pr-2">
+        <div class="card text-white bg-dark mb-3 d-flex show-page" style="max-width: 25rem;">
+          <%= gravatar_for @user, class: 'avatar' %>
+          <div class="card-header pt-4 justify-content-end">My Profile  
+            <i class="fas fa-cog setting-icon"></i>
+              <h5 class="mt-2">
+                <%= link_to '@' + @user.name.titleize, user_path(@user.id) %>
+              </h5>
+            </div>
+          
+            <div class="card-body pt-4">
+              <h5 class="card-title text-secondary big-text"><%= @user.posts.count %> Posts</h5>
+              <h5 class="card-title text-secondary big-text"><%= @user.friends.count %> Friends</h5>
+              <p class="card-text text-primary show-card">
+                <% current_user.friends.sort_by{|t| - t.created_at.to_i}.first(10).each do |friend| %>
+                  <%= gravatar_for friend%>
+                  <small class='ml-1'><%= link_to friend.name.capitalize, user_path(friend) %> </small>
+                  <br/>
+                <% end %>
+              </p>
+            </div>
+          </div>
+        </div>
+
+  <div class="col-m ml-2 pl-2">
+    <%= render @user.posts %>  
+  </div>
+</div>

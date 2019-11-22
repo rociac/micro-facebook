@@ -10,7 +10,7 @@ class LikesController < ApplicationController
     else
       @post.likes.create(user_id: current_user.id)
     end
-    redirect_to post_path(@post)
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
@@ -19,7 +19,7 @@ class LikesController < ApplicationController
     else
       @like.destroy
     end
-    redirect_to post_path(@post)
+    redirect_back(fallback_location: root_path)
   end
 
   def find_like
@@ -37,3 +37,4 @@ class LikesController < ApplicationController
     params[:post_id]).exists?
   end
 end
+post = Post.find(params[:post_id])
