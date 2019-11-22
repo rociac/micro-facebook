@@ -37,4 +37,3 @@ class LikesController < ApplicationController
     params[:post_id]).exists?
   end
 end
-post = Post.find(params[:post_id])
