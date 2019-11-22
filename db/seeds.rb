@@ -1,5 +1,5 @@
 User.create!(name: "Rodolfo Cisneros",
-  email: "acosta.rodolfo.rca@gmail.com",
+  email: "brsrkdev@gmail.com",
   password: "123456"
 )
 
