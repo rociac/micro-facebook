@@ -24,7 +24,7 @@ $ ruby-2.5.1
 Rails version:
 
 ```
-$ rails-5.2.3
+$ rails-6.0.0
 ```
 
 ## Installation
